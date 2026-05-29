@@ -7,6 +7,8 @@ pub async fn create_pool(config: &Config) -> sqlx::MySqlPool {
         config.db_user, config.db_pass, config.db_host, config.db_port, config.db_name
     );
 
+    println!("DATABASE URL = {}", url);
+
     let pool = MySqlPoolOptions::new()
         .max_connections(20)
         .min_connections(2)
